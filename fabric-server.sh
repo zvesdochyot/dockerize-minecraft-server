@@ -29,7 +29,7 @@ JAR_NAME="fabric-server-${MC_VERSION}-${LOADER_VERSION}-${INSTALLER_VERSION}.jar
 if [[ ! -e $JAR_NAME ]]
 then
   rm -rf *.jar
-  wget "$JAR_URL" -O "$JAR_NAME"
+  wget "$JAR_URL" -qO "$JAR_NAME"
 fi
 
 # Update eula.txt with current setting
@@ -41,7 +41,5 @@ then
   JAVA_OPTS="-Xms${MC_RAM} -Xmx${MC_RAM} $JAVA_OPTS"
 fi
 
-echo $JAR_URL
-echo $JAR_NAME
 # Start Fabric server
 exec java -server $JAVA_OPTS -jar "$JAR_NAME" nogui
