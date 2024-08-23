@@ -9,7 +9,8 @@ ENV MC_VERSION="latest" \
 
 COPY fabric-server.sh .
 RUN apk update \
-    && apk add openjdk17-jre-headless \
+    && apk add libstdc++ \
+    && apk add openjdk21-jre-headless \
     && apk add bash \
     && apk add wget \
     && apk add jq \
